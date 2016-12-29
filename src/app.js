@@ -14,39 +14,11 @@ class App extends React.Component {
 			categories: [
 				{
 					id: '1',
-					name: 'Category1',
-					todo: [
-						{
-							id: '1.1',
-							name: 'ToDo item 1.1'
-						},
-						{
-							id: '1.2',
-							name: 'ToDo item 1.2'
-						},
-						{
-							id: '1.3',
-							name: 'ToDo item 1.3'
-						}
-					]
+					name: 'Category1'
 				},
 				{
 					id: '2',
-					name: 'Category2',
-					todo: [
-						{
-							id: '2.1',
-							name: 'ToDo item 2.1'
-						},
-						{
-							id: '2.2',
-							name: 'ToDo item 2.2'
-						},
-						{
-							id: '2.3',
-							name: 'ToDo item 2.3'
-						}
-					]
+					name: 'Category2'
 				},
 				{
 					id: '3',
@@ -54,62 +26,20 @@ class App extends React.Component {
 					children: [
 						{
 							id: '3.1',
-							name: 'Category3.1',
-							todo: [
-								{
-									id: '3.1.1',
-									name: 'ToDo item 3.1.1'
-								},
-								{
-									id: '3.1.2',
-									name: 'ToDo item 3.1.2'
-								},
-								{
-									id: '3.1.3',
-									name: 'ToDo item 3.1.3'
-								}
-							]
+							name: 'Category3.1'
 						},
 						{
 							id: '3.2',
-							name: 'Category3.2',
-							todo: [
-								{
-									id: '3.2.1',
-									name: 'ToDo item 3.2.1'
-								},
-								{
-									id: '3.2.2',
-									name: 'ToDo item 3.2.2'
-								},
-								{
-									id: '3.2.3',
-									name: 'ToDo item 3.2.3'
-								}
-							]
+							name: 'Category3.2'
 						},
 						{
 							id: '3.3',
-							name: 'Category3.3',
-							todo: [
-								{
-									id: '3.3.1',
-									name: 'ToDo item 3.3.1'
-								},
-								{
-									id: '3.3.2',
-									name: 'ToDo item 3.3.2'
-								},
-								{
-									id: '3.3.3',
-									name: 'ToDo item 3.3.3'
-								}
-							]
+							name: 'Category3.3'
 						}
 					]
 				}
 			],
-			todos: [
+			todoList: [
 				{
 					categoryId: '1',
 					todo: [
@@ -201,6 +131,8 @@ class App extends React.Component {
 
 	render() {
 
+		let {todoList = []} = this.state;
+
 		return (
 			<div className="holder">
 				<h1 className="to-do-header">To-Do List</h1>
@@ -208,7 +140,7 @@ class App extends React.Component {
 				<ProgressBar />
 				<div className="main-content clearfix">
 					<Category categories={this.state.categories}/>
-					<ToDo todos={this.state.todos}/>
+					<ToDo todoList={todoList}/>
 				</div>
 
 			</div>

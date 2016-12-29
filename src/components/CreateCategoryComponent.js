@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-class NewCategory extends React.Component {
+class CreateCategory extends React.Component {
 
 	render() {
 		return (
@@ -15,4 +15,4 @@ class NewCategory extends React.Component {
 
 }
 
-export default NewCategory;
+export default CreateCategory;

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import CategoryList from './CategoryListComponent';
-import ToDoList from './ToDoListComponent';
 
 class CategoryItem extends React.Component {
 
@@ -11,18 +10,21 @@ class CategoryItem extends React.Component {
 	}
 
 	render() {
+
+		let {children = [], name} = this.props.item;
+
 		return (
 			<div className="category-item">
 				<div className="category-tab">
-					{this.props.item.name}
+					{name}
 					<i className="fa fa-pencil-square-o"></i>
 					<i className="fa fa-plus-square-o"></i>
 					<i className="fa fa-trash-o"></i>
 				</div>
-				{(this.props.item.children && this.props.item.children.length) ?
-					<i className="fa fa-caret-square-o-down"></i> : false}
-				{(this.props.item.children && this.props.item.children.length) ?
-					<CategoryList isSubCategory="true" categories={this.props.item.children}/> : false}
+				{(children && children.length) ?
+					<i className="fa fa-caret-square-o-down"></i> : ''}
+				{(children && children.length) ?
+					<CategoryList isSubCategory="true" categories={children}/> : false}
 			</div>
 		);
 	}

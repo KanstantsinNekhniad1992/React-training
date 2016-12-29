@@ -2,7 +2,7 @@
 
 import React from 'react';
 import CategoryList from './CategoryListComponent';
-import NewCategory from './NewCategoryComponent';
+import CreateCategory from './CreateCategoryComponent';
 
 class Category extends React.Component {
 
@@ -11,10 +11,13 @@ class Category extends React.Component {
 	}
 
 	render() {
+
+		let {categories = []} = this.props;
+
 		return (
 			<div className="categories-holder">
-				<NewCategory />
-				<CategoryList categories={this.props.categories}/>
+				<CreateCategory />
+				<CategoryList categories={categories}/>
 			</div>
 		);
 	}

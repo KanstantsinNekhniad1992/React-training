@@ -11,10 +11,15 @@ class CategoryList extends React.Component {
 
 	render() {
 
+		let {categories = []} = this.props;
+		let categoryClassName = "category-list " + (this.props.isSubCategory ? 'sub-category' : '');
+
 		return (
-			<ul className={"category-list " + (this.props.isSubCategory ? 'sub-category' : '')} >
-				{this.props.categories.map(
-					(item) => <li key={item.id}><CategoryItem item={item} /></li>
+			<ul className={categoryClassName}>
+				{categories.map((item) =>
+					<li key={item.id}>
+						<CategoryItem item={item}/>
+					</li>
 				)}
 			</ul>
 		);
@@ -22,5 +27,9 @@ class CategoryList extends React.Component {
 	}
 
 }
+
+CategoryList.propTypes = {
+	categories: React.PropTypes.array.isRequired
+};
 
 export default CategoryList;

@@ -5,22 +5,30 @@ import ToDoItem from './ToDoItemComponent';
 
 class ToDoList extends React.Component {
 
-	constructor (props) {
+	constructor(props) {
 		super(props);
 	}
 
 	render() {
 
+		let {todo = []} = this.props;
+
 		return (
 			<ul className="to-do-list">
-				{(this.props.todo && this.props.todo.length) ? this.props.todo.map((item) =>
-						<li key={item.id}><ToDoItem item={item}/></li>
-				): false}
+				{todo.map((item) =>
+					<li key={item.id}>
+						<ToDoItem item={item}/>
+					</li>
+				)}
 			</ul>
 		);
 
 	}
 
 }
+
+ToDoList.propTypes = {
+	todo: React.PropTypes.array.isRequired
+};
 
 export default ToDoList;

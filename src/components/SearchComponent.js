@@ -10,7 +10,7 @@ class Search extends React.Component {
 				<form className="search" method="POST">
 					<label htmlFor="search-checkbox">
 						<input id="search-checkbox" type="checkbox"/>
-						Show done
+						<span>Show done</span>
 					</label>
 					<input type="text" placeholder="Search"/>
 					<i className="fa fa-trash-o"></i>

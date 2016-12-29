@@ -3,22 +3,31 @@
 import React from 'react';
 import ToDoList from './ToDoListComponent';
 
-class Category extends React.Component {
+class ToDo extends React.Component {
 
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
+
+		let {todoList = []} = this.props;
+
 		return (
 			<ul className="to-do-holder">
-				{(this.props.todos && this.props.todos.length) ? this.props.todos.map((item) =>
-						<li key={item.categoryId}><ToDoList todo={item.todo}/></li>
-					): false}
+				{todoList.map((item) =>
+					<li key={item.categoryId}>
+						<ToDoList todo={item.todo}/>
+					</li>
+				)}
 			</ul>
 		);
 	}
 
 }
 
-export default Category;
+ToDo.propTypes = {
+	todoList: React.PropTypes.array.isRequired
+};
+
+export default ToDo;
